@@ -1,0 +1,666 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Primrose Dental Surgery | Premium Demo Website</title>
+  <meta name="description" content="Demo one-page website concept for Primrose Dental Surgery in Kandy, focused on trust and appointment conversions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #0f172a;
+      --muted: #475569;
+      --primary: #1d4ed8;
+      --primary-dark: #1e40af;
+      --card: #eff6ff;
+      --border: #dbeafe;
+      --radius: 18px;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Inter", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin-inline: auto;
+    }
+
+    .section {
+      padding: 88px 0;
+    }
+
+    h1, h2, h3 { line-height: 1.18; margin: 0 0 14px; }
+    h1 { font-size: clamp(2rem, 4.5vw, 3.4rem); letter-spacing: -0.02em; }
+    h2 { font-size: clamp(1.7rem, 3.5vw, 2.4rem); letter-spacing: -0.01em; }
+    h3 { font-size: 1.2rem; }
+    p { color: var(--muted); margin: 0 0 14px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px 20px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all .25s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 10px 25px rgba(29, 78, 216, 0.25);
+    }
+
+    .btn-primary:hover { background: var(--primary-dark); transform: translateY(-1px); }
+    .btn-outline {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: #fff;
+    }
+    .btn-outline:hover { background: #eff6ff; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: rgba(255,255,255,.92);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .nav-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 78px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 800;
+      font-size: 1.02rem;
+    }
+
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(160deg, #bfdbfe, #2563eb);
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 800;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 22px;
+    }
+
+    nav a {
+      color: #1e293b;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .hamburger {
+      display: none;
+      width: 42px;
+      height: 42px;
+      border: 1px solid #cbd5e1;
+      background: #fff;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 36px;
+      align-items: center;
+      background: linear-gradient(145deg, #f8fbff, #ffffff);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+    }
+
+    .badge-row,
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .badge {
+      background: #e0ecff;
+      border: 1px solid #c6dbff;
+      color: #1e3a8a;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: .9rem;
+      font-weight: 600;
+    }
+
+    .image-card img,
+    .mini-card img,
+    .staff-photo,
+    .service-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: inherit;
+    }
+
+    .image-card {
+      border-radius: 20px;
+      min-height: 430px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+    }
+
+    .card strong {
+      font-size: 1.7rem;
+      color: var(--primary);
+      display: block;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .service-card {
+      display: grid;
+      grid-template-columns: 140px 1fr;
+      gap: 16px;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    .service-img {
+      min-height: 130px;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .service-card h3 { margin-bottom: 8px; }
+
+    .emergency {
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      color: #fff;
+      border-radius: 24px;
+      padding: 38px;
+      box-shadow: var(--shadow);
+    }
+
+    .emergency p { color: #e2e8f0; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .step {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 20px;
+      border: 1px solid #dbeafe;
+      position: relative;
+    }
+
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      background: #dbeafe;
+      color: #1e3a8a;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .team-grid, .review-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .staff-card, .review-card {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+      background: #fff;
+    }
+
+    .staff-photo { height: 220px; }
+    .staff-content, .review-content { padding: 14px; }
+
+    .review-card { background: #f8fbff; }
+
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .map-card {
+      min-height: 290px;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid #dbeafe;
+      background: #eaf3ff;
+      position: relative;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .cta-banner {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%, #3b82f6 100%);
+      color: #fff;
+      border-radius: 24px;
+      padding: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .cta-banner p { color: #dbeafe; margin-bottom: 0; }
+
+    form {
+      display: grid;
+      gap: 12px;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 12px;
+      padding: 12px;
+      font: inherit;
+    }
+
+    textarea { min-height: 120px; resize: vertical; }
+
+    #formSuccess {
+      display: none;
+      margin-top: 6px;
+      color: #166534;
+      background: #dcfce7;
+      border: 1px solid #86efac;
+      border-radius: 12px;
+      padding: 10px 12px;
+      font-size: .92rem;
+      font-weight: 500;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #cbd5e1;
+      padding: 54px 0 34px;
+      margin-top: 72px;
+    }
+
+    footer h3, footer h4 { color: #fff; margin-bottom: 10px; }
+    footer a { color: #cbd5e1; text-decoration: none; }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 20px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 980px) {
+      nav {
+        position: fixed;
+        inset: 78px 0 auto 0;
+        background: #fff;
+        border-bottom: 1px solid #e2e8f0;
+        padding: 12px 4%;
+        transform: translateY(-140%);
+        transition: transform .24s ease;
+      }
+      nav.open { transform: translateY(0); }
+      nav ul { flex-direction: column; gap: 12px; }
+      .hamburger { display: block; }
+      .desktop-cta { display: none; }
+      .hero-grid,
+      .split { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-3 { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .team-grid, .review-grid { grid-template-columns: repeat(2, 1fr); }
+      .steps { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 620px) {
+      .section { padding: 70px 0; }
+      .hero-grid { padding: 24px; }
+      .grid-4 { grid-template-columns: 1fr; }
+      .team-grid, .review-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .service-card { grid-template-columns: 1fr; }
+      .image-card { min-height: 300px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-wrap">
+      <a class="brand" href="#home">
+        <span class="logo-mark">P</span>
+        <span>Primrose Dental Surgery</span>
+      </a>
+      <button class="hamburger" id="menuBtn" aria-label="Toggle navigation">☰</button>
+      <nav id="mainNav">
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#dentists">Dentists</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#location">Location</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-primary desktop-cta" href="#contact">Book Appointment</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="section" id="home">
+      <div class="container hero-grid reveal">
+        <div>
+          <h1>Book Trusted Dental Care in Kandy Without the Long Waiting Stress</h1>
+          <p>Primrose Dental Surgery helps patients get reliable dental care, emergency support, cosmetic treatments, implants, crowns, root fillings, and hygiene care with a clearer appointment experience.</p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="tel:0812201102">Call to Book</a>
+            <a class="btn btn-outline" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Primrose%20Dental%20Surgery%2C%207%20Primrose%20Rd%2C%20Kandy%2020000">Get Directions</a>
+            <a class="btn btn-outline" href="#contact">Request Appointment</a>
+          </div>
+          <div class="badge-row">
+            <span class="badge">Located in Kandy</span>
+            <span class="badge">Emergency Dental Care Available</span>
+            <span class="badge">Open Today Until 8 PM</span>
+            <span class="badge">50 Patient Reviews</span>
+          </div>
+        </div>
+        <div class="image-card">
+          <img src="https://images.unsplash.com/photo-1588776814546-daab30f310ce?auto=format&fit=crop&w=1200&q=80" alt="Modern dental clinic treatment room" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="grid-4 reveal">
+          <article class="card"><strong>50+</strong><p>Patient Reviews</p></article>
+          <article class="card"><strong>3.7★</strong><p>Current Google Rating</p></article>
+          <article class="card"><strong>8 PM</strong><p>Open Until</p></article>
+          <article class="card"><strong>24/7</strong><p>Emergency Dental Care Available</p></article>
+        </div>
+        <p style="margin-top:16px;max-width:860px;">Demo improvement concept: this website is designed to improve trust, reduce booking confusion, and turn more search visitors into appointments.</p>
+      </div>
+    </section>
+
+    <section class="section" style="background:#f8fbff;" id="problem-solution">
+      <div class="container reveal">
+        <h2>Make Booking Dental Care Easier, Faster, and More Professional</h2>
+        <div class="grid-3" style="margin-top:20px;">
+          <article class="card"><h3>Clear Appointment Flow</h3><p>Patients can quickly call, request an appointment, or get directions without confusion.</p></article>
+          <article class="card"><h3>Stronger Online Trust</h3><p>A professional website helps balance negative reviews with clear services, proof, and patient education.</p></article>
+          <article class="card"><h3>Better First Impression</h3><p>Modern visuals, treatment explanations, and service pages make the clinic look more trustworthy before patients call.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="services">
+      <div class="container reveal">
+        <h2>Dental Services Available at Primrose Dental Surgery</h2>
+        <div class="services-grid" style="margin-top:20px;">
+          <article class="service-card"><div class="service-img"><img src="https://images.unsplash.com/photo-1588774069162-152f4f4f6f55?auto=format&fit=crop&w=640&q=80" alt="General dental checkup"></div><div><h3>General Dental Checkups</h3><p>Routine exams that catch issues early and keep your smile healthy long-term.</p><a class="btn btn-outline" href="#contact">Ask About This Service</a></div></article>
+          <article class="service-card"><div class="service-img"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?auto=format&fit=crop&w=640&q=80" alt="Emergency dental care"></div><div><h3>Emergency Dental Care</h3><p>Fast support for pain, trauma, and urgent infections when timing matters most.</p><a class="btn btn-outline" href="tel:0812201102">Ask About This Service</a></div></article>
+          <article class="service-card"><div class="service-img"><img src="https://images.unsplash.com/photo-1606811842259-39b7f5f93f73?auto=format&fit=crop&w=640&q=80" alt="Cosmetic dentistry"></div><div><h3>Cosmetic Dentistry</h3><p>Smile improvements designed to increase confidence with natural-looking outcomes.</p><a class="btn btn-outline" href="#contact">Ask About This Service</a></div></article>
+          <article class="service-card"><div class="service-img"><img src="https://images.unsplash.com/photo-1598257006626-5c55b86f5f2f?auto=format&fit=crop&w=640&q=80" alt="Teeth cleaning and hygiene"></div><div><h3>Teeth Cleaning &amp; Hygiene</h3><p>Professional cleaning to reduce plaque buildup and protect gum health.</p><a class="btn btn-outline" href="#contact">Ask About This Service</a></div></article>
+          <article class="service-card"><div class="service-img"><img src="https://images.unsplash.com/photo-1643297654416-057419f447f2?auto=format&fit=crop&w=640&q=80" alt="Dental implants"></div><div><h3>Dental Implants</h3><p>Durable tooth replacement options built for function, comfort, and appearance.</p><a class="btn btn-outline" href="#contact">Ask About This Service</a></div></article>
+          <article class="service-card"><div class="service-img"><img src="https://images.unsplash.com/photo-1588776813681-4a2f53c6f5ad?auto=format&fit=crop&w=640&q=80" alt="Root fillings"></div><div><h3>Root Fillings</h3><p>Tooth-saving treatment that relieves pain and prevents deeper infections.</p><a class="btn btn-outline" href="#contact">Ask About This Service</a></div></article>
+          <article class="service-card"><div class="service-img"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=640&q=80" alt="Dental crowns"></div><div><h3>Dental Crowns</h3><p>Custom crowns to restore strength, protection, and smile appearance.</p><a class="btn btn-outline" href="#contact">Ask About This Service</a></div></article>
+          <article class="service-card"><div class="service-img"><img src="https://images.unsplash.com/photo-1624982752775-9b4f8f3f0b91?auto=format&fit=crop&w=640&q=80" alt="Tooth extractions"></div><div><h3>Extractions</h3><p>Safe, carefully explained extraction support with comfort-focused care.</p><a class="btn btn-outline" href="#contact">Ask About This Service</a></div></article>
+          <article class="service-card"><div class="service-img"><img src="https://images.unsplash.com/photo-1581594693702-fbdc51b2763b?auto=format&fit=crop&w=640&q=80" alt="Periodontal care"></div><div><h3>Periodontal Care</h3><p>Targeted gum treatment plans to support long-term oral stability.</p><a class="btn btn-outline" href="#contact">Ask About This Service</a></div></article>
+          <article class="service-card"><div class="service-img"><img src="https://images.unsplash.com/photo-1625134673337-519d02ee7dc8?auto=format&fit=crop&w=640&q=80" alt="Dental laboratory services"></div><div><h3>Dental Laboratory Services</h3><p>Precision lab coordination for better-fitting restorative and cosmetic work.</p><a class="btn btn-outline" href="#contact">Ask About This Service</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container emergency reveal">
+        <h2>Dental Emergency in Kandy? Call Primrose Dental Surgery</h2>
+        <p>From sudden tooth pain to broken crowns, urgent infections, extractions, and emergency dental support, patients can contact the clinic directly for faster guidance.</p>
+        <a class="btn btn-outline" style="background:#fff;color:#1d4ed8;" href="tel:0812201102">Call Now: 0812 201 102</a>
+      </div>
+    </section>
+
+    <section class="section" style="background:#f8fbff;">
+      <div class="container reveal">
+        <h2>Simple 3-Step Appointment Process</h2>
+        <div class="steps" style="margin-top:20px;">
+          <article class="step"><span class="step-num">1</span><h3>Call or request an appointment</h3></article>
+          <article class="step"><span class="step-num">2</span><h3>Share your dental concern</h3></article>
+          <article class="step"><span class="step-num">3</span><h3>Visit the clinic at 7 Primrose Rd, Kandy</h3></article>
+        </div>
+        <p style="margin-top:16px;">This demo is designed to reduce waiting-time frustration by making the booking process clearer before the patient arrives.</p>
+      </div>
+    </section>
+
+    <section class="section" id="dentists">
+      <div class="container reveal">
+        <h2>Meet the Dental Team</h2>
+        <div class="team-grid" style="margin-top:18px;">
+          <article class="staff-card"><div class="staff-photo"><img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?auto=format&fit=crop&w=700&q=80" alt="Senior Dentist"></div><div class="staff-content"><h3>Senior Dentist</h3><p>Experienced, kind, and procedure-focused care.</p></div></article>
+          <article class="staff-card"><div class="staff-photo"><img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=700&q=80" alt="Cosmetic Dentist"></div><div class="staff-content"><h3>Cosmetic Dentist</h3><p>Smile design and aesthetic improvements.</p></div></article>
+          <article class="staff-card"><div class="staff-photo"><img src="https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?auto=format&fit=crop&w=700&q=80" alt="Dental Hygienist"></div><div class="staff-content"><h3>Dental Hygienist</h3><p>Preventive hygiene and oral health support.</p></div></article>
+          <article class="staff-card"><div class="staff-photo"><img src="https://images.unsplash.com/photo-1659353889385-7ac4f1dc42ca?auto=format&fit=crop&w=700&q=80" alt="Emergency Dental Care Team"></div><div class="staff-content"><h3>Emergency Dental Care Team</h3><p>Rapid-response support for urgent treatment needs.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="reviews" style="background:#f8fbff;">
+      <div class="container reveal">
+        <h2>What Patients Appreciate</h2>
+        <div class="review-grid" style="margin-top:16px;grid-template-columns:repeat(3,1fr);">
+          <article class="review-card"><div class="review-content"><h3>Friendly staff mentioned often</h3><p>Patients frequently highlight warm and supportive interactions.</p></div></article>
+          <article class="review-card"><div class="review-content"><h3>Emergency dental care support</h3><p>Urgent dental pain handling is appreciated by many visitors.</p></div></article>
+          <article class="review-card"><div class="review-content"><h3>Root filling experience</h3><p>Clear communication during treatment builds patient confidence.</p></div></article>
+          <article class="review-card"><div class="review-content"><h3>Crown treatment</h3><p>Comfort and restoration outcomes are commonly praised.</p></div></article>
+          <article class="review-card"><div class="review-content"><h3>Clear procedure explanations</h3><p>Patients feel better prepared when steps are explained well.</p></div></article>
+          <article class="review-card"><div class="review-content"><h3>Modern equipment</h3><p>Contemporary tools support trust and treatment reassurance.</p></div></article>
+        </div>
+        <p style="margin-top:14px;">Online reputation can be improved by making satisfied patients easier to guide toward leaving reviews after successful visits.</p>
+      </div>
+    </section>
+
+    <section class="section" id="location">
+      <div class="container split reveal">
+        <article class="card">
+          <h2>Visit Primrose Dental Surgery in Kandy</h2>
+          <p><strong>Address:</strong> 7 Primrose Rd, Kandy 20000</p>
+          <p><strong>Plus Code:</strong> 7JJ9+7C Kandy</p>
+          <p><strong>Opening:</strong> Open today · Closes 8 PM</p>
+          <p><strong>Phone:</strong> <a href="tel:0812201102">0812 201 102</a></p>
+          <div class="cta-row">
+            <a class="btn btn-primary" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Primrose%20Dental%20Surgery%2C%207%20Primrose%20Rd%2C%20Kandy%2020000">Get Directions</a>
+            <a class="btn btn-outline" href="tel:0812201102">Call Clinic</a>
+          </div>
+        </article>
+        <article class="map-card">
+          <h3>Google Map Placeholder</h3>
+          <p>Embed the live map here after final clinic approval.
+            <br>Location target: Primrose Dental Surgery, 7 Primrose Rd, Kandy 20000.</p>
+          <a class="btn btn-outline" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Primrose%20Dental%20Surgery%2C%207%20Primrose%20Rd%2C%20Kandy%2020000">Open in Google Maps</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container split reveal">
+        <article class="cta-banner" style="grid-column:1/-1;">
+          <div>
+            <h2>Ready to Book Your Dental Visit?</h2>
+            <p>Contact Primrose Dental Surgery today for checkups, emergency care, crowns, implants, cosmetic dentistry, hygiene treatments, and more.</p>
+          </div>
+          <div class="cta-row">
+            <a class="btn btn-outline" style="background:#fff;color:#1d4ed8;" href="tel:0812201102">Call 0812 201 102</a>
+            <a class="btn btn-outline" style="background:transparent;color:#fff;border-color:#bfdbfe;" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Primrose%20Dental%20Surgery%2C%207%20Primrose%20Rd%2C%20Kandy%2020000">Get Directions</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <h2>Request an Appointment</h2>
+          <p>Use this demo form to preview a clearer booking funnel.</p>
+          <form id="appointmentForm">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="tel" name="phone" placeholder="Phone" required>
+            <select name="treatment" required>
+              <option value="">Treatment Needed</option>
+              <option>General Dental Checkup</option>
+              <option>Emergency Dental Care</option>
+              <option>Cosmetic Dentistry</option>
+              <option>Dental Implants</option>
+              <option>Root Fillings</option>
+              <option>Dental Crowns</option>
+            </select>
+            <input type="date" name="date" required>
+            <textarea name="message" placeholder="Message"></textarea>
+            <button class="btn btn-primary" type="submit">Request Appointment</button>
+          </form>
+          <div id="formSuccess">Success! Demo request captured. In the final website this can send to WhatsApp, email, or a booking CRM.</div>
+        </article>
+
+        <article class="card">
+          <h2>Contact Details</h2>
+          <p><strong>Clinic:</strong> Primrose Dental Surgery</p>
+          <p><strong>Category:</strong> Dental Clinic</p>
+          <p><strong>Phone / WhatsApp:</strong> <a href="tel:0812201102">0812 201 102</a></p>
+          <p><strong>Email:</strong> <a href="mailto:info@primrosedental.lk">info@primrosedental.lk</a></p>
+          <p><strong>Address:</strong> 7 Primrose Rd, Kandy 20000</p>
+          <p><strong>Website Status:</strong> Missing / Not added</p>
+          <p><strong>Conversion Goal:</strong> Get appointment bookings through call / WhatsApp.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h3>Primrose Dental Surgery</h3>
+        <p>Dental Clinic in Kandy</p>
+        <p>Phone: <a href="tel:0812201102">0812 201 102</a></p>
+        <p>Address: 7 Primrose Rd, Kandy 20000</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <p><a href="#services">General Dental Care</a></p>
+        <p><a href="#services">Cosmetic Dentistry</a></p>
+        <p><a href="#services">Dental Implants</a></p>
+        <p><a href="#services">Emergency Dental Care</a></p>
+        <p><a href="#services">Private Dental Treatments</a></p>
+      </div>
+      <div>
+        <h4>Opening Hours</h4>
+        <p>Open today · Closes 8 PM</p>
+        <p><strong>Disclaimer:</strong> This is a demo website concept created for presentation. Final website content, images, map, booking system, and contact links can be updated after clinic approval.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menuBtn');
+    const nav = document.getElementById('mainNav');
+    menuBtn.addEventListener('click', () => nav.classList.toggle('open'));
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => nav.classList.remove('open'));
+    });
+
+    const form = document.getElementById('appointmentForm');
+    const success = document.getElementById('formSuccess');
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      success.style.display = 'block';
+      form.reset();
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
